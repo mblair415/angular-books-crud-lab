@@ -1,7 +1,6 @@
 angular
   .module('libraryApp', ['ngRoute'])
-  .config(config)
-  .controller('BooksIndexController', BooksIndexController);
+  .config(config);
 
 
 ////////////
@@ -30,10 +29,4 @@ function config (  $routeProvider,   $locationProvider  )  {
       enabled: true,
       requireBase: false
     });
-}
-
-BooksIndexController.$inject = ['$http'];
-
-function BooksIndexController($http){
-
 }

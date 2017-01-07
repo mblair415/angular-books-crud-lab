@@ -1,7 +1,28 @@
 <h2>Library Books</h2>
-<!-- <div ng-repeat="add the expression here to repeat through the books">
-  Here, make the HTML for how you want each book to display.
-  Use ng-model to fill in data.
-  Make sure you display an image, the title, and the author.
-  The title should be a link to the specific book view.
-</div> -->
+<div ng-repeat="book in booksIndexCtrl.books">
+  <div class="container">
+    <div class="row">
+      <div class="container-fluid">
+        <div class="image col-xs-6">
+          <img class="img-responsive col-xs-12" ng-src={{book.image}} alt="Dat's a book picture!">
+        </div>
+        <div class="container col-xs-6">
+          <div class="author">
+            <span><b>Author: </b> {{book.author}}</span>
+          </div>
+          <div class="title">
+            <a ng-href="/books/{{book._id}}"><b>Title: </b>{{book.title}}</a>
+            <!-- <span><b>Title: </b>{{book.title}}</span> -->
+          </div>
+          <div class="release">
+            <span><b>Release Date: </b>{{book.releaseDate}}</span>
+          </div>
+          <!-- <div class="buttons">
+            <button type="submit" name="edit">Edit Book</button>
+            <button type="button" name="delete">BURN Book</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
