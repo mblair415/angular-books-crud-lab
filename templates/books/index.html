@@ -1,8 +1,10 @@
 <h2>Library Books</h2>
-<input type="text" class="form-control" ng-model="searchText" placeholder="Search Books">
+<div class="search">
+  <!-- <button type="button" class="btn btn-sm btn-info" ng-model="searchTitle">Sort by Title</button> -->
+  <input type="text" class="form-control" ng-model="searchText" placeholder="Search Books">
+</div>
 <div ng-repeat="book in booksIndexCtrl.books | orderBy: 'author' | filter: searchText">
   <div class="container">
-<!-- SEARCH AREA GOES HERE -->
     <div class="">
 
     </div>
