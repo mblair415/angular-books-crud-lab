@@ -1,6 +1,11 @@
 <h2>Library Books</h2>
-<div ng-repeat="book in booksIndexCtrl.books">
+<input type="text" class="form-control" ng-model="searchText" placeholder="Search Books">
+<div ng-repeat="book in booksIndexCtrl.books | orderBy: 'author' | filter: searchText">
   <div class="container">
+<!-- SEARCH AREA GOES HERE -->
+    <div class="">
+
+    </div>
     <div class="row">
       <div class="container-fluid">
         <div class="image col-xs-6">
@@ -12,15 +17,10 @@
           </div>
           <div class="title">
             <a ng-href="/books/{{book._id}}"><b>Title: </b>{{book.title}}</a>
-            <!-- <span><b>Title: </b>{{book.title}}</span> -->
           </div>
           <div class="release">
             <span><b>Release Date: </b>{{book.releaseDate}}</span>
           </div>
-          <!-- <div class="buttons">
-            <button type="submit" name="edit">Edit Book</button>
-            <button type="button" name="delete">BURN Book</button>
-          </div> -->
         </div>
       </div>
     </div>

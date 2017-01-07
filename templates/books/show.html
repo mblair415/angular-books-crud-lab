@@ -1,26 +1,43 @@
-<h2>{{booksShowCtrl.oneBook.title}}</h2>
+<h2>{{booksShowCtrl.book.title}}</h2>
 <hr>
 <div class="row">
     <div class="container">
       <div class="row">
         <div class="container-fluid">
           <div class="image col-xs-6">
-            <img class="img-responsive col-xs-12" src={{booksShowCtrl.oneBook.image}} alt="Dat's a book picture!">
+            <img class="img-responsive col-xs-12" src={{booksShowCtrl.book.image}} alt="Dat's a book picture!">
           </div>
           <div class="container col-xs-6">
             <div class="author">
-              <span><b>Author: </b> {{booksShowCtrl.oneBook.author}}</span>
+              <span ng-hide="editing"><b>Author: </b> {{booksShowCtrl.book.author}}</span>
+              <input ng-show="editing" ng-model="booksShowCtrl.book.author" type="text" placeholder="Book Author" name="newAuthor">
             </div>
             <div class="title">
-              <span><b>Title: </b>{{booksShowCtrl.oneBook.title}}</span>
+              <span ng-hide="editing"><b>Title: </b>{{booksShowCtrl.book.title}}</span>
+              <input ng-show="editing" ng-model="booksShowCtrl.book.title" type="text" placeholder="Book Title" name="newTitle">
             </div>
             <div class="release">
-              <span><b>Release Date: </b>{{booksShowCtrl.oneBook.releaseDate}}</span>
+              <span ng-hide="editing"><b>Release Date: </b>{{booksShowCtrl.book.releaseDate}}</span>
+              <input ng-show="editing" ng-model="booksShowCtrl.book.releaseDate" type="text" placeholder="Release Date" name="newReleaseDate">
+            </div>
+            <div class="url">
+              <span ng-hide="editing"><b>Image: </b>{{booksShowCtrl.book.image}}</span>
+              <input ng-show="editing" ng-model="booksShowCtrl.book.image" type="text" placeholder="Link to book cover" name="newImage">
             </div>
             <div class="buttons">
-              <button class="btn-primary" type="submit" ng-hide="editing" ng-click="editing=true" name="edit">Edit Book</button>
-              <button class="btn-info" type="submit" ng-show="editing" ng-click="bookShowCtrl.updateBook(book); editing=false">Save Changes</button>
-              <button class="btn-warning" type="button" ng-show="editing" ng-click="booksShowCtrl.deleteBook(book)" name="delete">BURN Book</button>
+              <button class="btn-primary btn-sm" type="submit" ng-hide="editing" ng-click="editing=true" name="edit">Edit Book
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+              </button>
+              <button class="btn-primary" type="submit" ng-show="editing" ng-click="booksShowCtrl.editBook(booksShowCtrl.book); editing=false">Save Changes
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              </button>
+              <button class="btn-warning" type="button" ng-show="editing" ng-click="booksShowCtrl.deleteBook(book)" name="delete">BURN Book
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+              </button>
+              <button class="btn-info" ng-show="editing" ng-click="booksShowCtrl.viewOne(book); editing=false">Cancel</button>
+            </div>
+            <div class="homepage-button">
+              <button class="btn-info btn-lg" ng-hide="editing" ng-click="booksShowCtrl.viewAll(); editing=false" name="homePage">Homepage</button>
             </div>
           </div>
         </div>
